@@ -1,0 +1,31 @@
+{
+    "name": "reg-hive-parser",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "exports": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "test": "node test/test.cjs && node test/test.mjs"
+    },
+    "keywords": [
+        "windows",
+        "registry",
+        "hive",
+        "parser",
+        "security"
+    ],
+    "author": "Neko Gong",
+    "license": "MIT",
+    "devDependencies": {
+        "rollup": "^4.14.1"
+    }
+}

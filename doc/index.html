@@ -1,0 +1,111 @@
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    li:hover {
+        background-color: #e0e0e0;
+        cursor: pointer;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #f2f2f2;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
+<input type="file" />
+
+<br />
+<br />
+<button id="back">back</button>
+
+<ul></ul>
+
+<dialog>
+    <p id="dialogMessage"></p>
+    <button id="closeDialog">Close</button>
+</dialog>
+
+<script src="../dist/index.umd.js"></script>
+<script>
+    const { parse } = regHiveParser
+    const input = document.querySelector('input')
+    input.addEventListener('change', e => {
+        const file = e.target.files[0]
+        const reader = new FileReader()
+        reader.onload = async e => {
+            const parsed = await parse(e.target.result, {
+                recurse: false,
+                simplify: true,
+                extra: obj => obj.signature
+            })
+            histories.push([parsed.root])
+            refresh()
+        }
+        reader.readAsArrayBuffer(file)
+    })
+
+    const histories = []
+
+    const refresh = () => {
+        const ul = document.querySelector('ul')
+        ul.innerHTML = ''
+        const last = histories[histories.length - 1]
+        for (const item of last) {
+            const li = document.createElement('li')
+            li.appendChild(
+                document.createTextNode(`[${item.type}] ${item.name}`)
+            )
+            ul.appendChild(li)
+            li.onclick = () => {
+                if (item.type === 'key') {
+                    const children = item.parse()
+                    histories.push(children)
+                    refresh()
+                }
+                if (item.type === 'value') {
+                    const data = item.parse()
+                    showMsg(item.valType + '<br>' +  data.toString())
+                }
+            }
+        }
+    }
+
+    document.getElementById('back').onclick = () => {
+        if (histories.length > 1) {
+            histories.pop()
+            refresh()
+        }
+    }
+
+    const showMsg = msg => {
+        const dialog = document.querySelector('dialog')
+        dialog.showModal()
+        document.getElementById('dialogMessage').innerHTML = msg
+    }
+
+    document.getElementById('closeDialog').onclick = () => {
+        const dialog = document.querySelector('dialog')
+        dialog.close()
+    }
+</script>
