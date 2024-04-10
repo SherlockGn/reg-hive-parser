@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**Reg Hive Parser** is an entirely JavaScript-based tool for parsing Windows Registry hive files, such as the NTUSER.dat file in the user prfiles, enhancing the security of the analysis process. The tool does not rely on any third-party libraries as dependencies. You can involve it in Node.js by using CommonJS or ESM. Furthermore, it is compatible with web browsers. To get a firsthand experience, simply click [here](www.example.com).
+**Reg Hive Parser** is an entirely JavaScript-based tool for parsing Windows Registry hive files, such as the NTUSER.dat file in the user prfiles, enhancing the security of the analysis process. The tool does not rely on any third-party libraries as dependencies. You can involve it in Node.js by using CommonJS or ESM. Furthermore, it is compatible with web browsers. To get a firsthand experience, simply click [here](https://sherlockgn.github.io/reg-hive-parser/).
 
 The parser is implemented based on this [format specification](https://github.com/msuhanov/regf/tree/master). We appreciate the hard work and dedication of the author, whose efforts have made this project possible.
 
