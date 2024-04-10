@@ -3,6 +3,7 @@ export default {
     output: [
         { file: 'dist/index.mjs', format: 'esm' },
         { file: 'dist/index.cjs', format: 'cjs' },
-        { file: 'dist/index.umd.js', format: 'umd', name: 'regHiveParser' }
+        { file: 'dist/index.umd.js', format: 'umd', name: 'regHiveParser' },
+        { file: 'docs/index.umd.js', format: 'umd', name: 'regHiveParser' }
     ]
 }

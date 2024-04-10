@@ -79,7 +79,7 @@ Type: `Boolean`
 
 Default: `false`
 
-If `true`, the parser will recursively parse subkeys.
+If `true`, the parser will recursively parse subkeys. To efficiently parse large hive files, we recommend setting the `recurse` parameter to `false` in order to minimize latency.
 
 ##### simplify
 
@@ -164,7 +164,7 @@ Type: `Function`
     
 Default: `() => undefined`
 
-You can add any property which you are interested in to the simplified object. Here is the example.
+You have the flexibility to add any property that you are interested in to the simplified object. This allows you to include additional information or customize the structure according to your specific needs. By extending the simplified object, you can enhance its functionality and tailor it to suit your requirements. Here is the example.
 
 ```javascript
 await parse(e.target.result, {
@@ -212,3 +212,7 @@ This will add the `signature` property to each simplified object.
   }
 }
 ```
+
+## Lisence
+
+This project is licensed under the MIT license.
