@@ -19,7 +19,7 @@ npm install reg-hive-parser
 ```javascript
 const { parse } = require('reg-hive-parser')
 
-(async () => {
+;(async () => {
     const parsed = await parse('path/to/hive.dat', { recurse: true })
     console.log(parsed)
 })()
@@ -29,7 +29,7 @@ const { parse } = require('reg-hive-parser')
 ```javascript
 import { parse } from 'reg-hive-parser'
 
-(async () => {
+;(async () => {
     const parsed = await parse('path/to/hive.dat', { recurse: true })
     console.log(parsed)
 })()
