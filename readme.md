@@ -6,6 +6,8 @@
 
 The parser is implemented based on this [format specification](https://github.com/msuhanov/regf/tree/master). We appreciate the hard work and dedication of the author, whose efforts have made this project possible.
 
+NPM: see [here](https://www.npmjs.com/package/reg-hive-parser).
+
 ## Installation
 
 ```

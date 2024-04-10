@@ -1,18 +1,22 @@
 {
     "name": "reg-hive-parser",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "An entirely JavaScript-based tool for parsing Windows Registry hive files, including the NTUSER.dat file, enhancing the security of the analysis process.",
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.mjs",
+    "main": "./dist/index-cjs.cjs",
+    "module": "./dist/index-esm.mjs",
     "type": "module",
+    "files": [
+        "dist"
+    ],
     "exports": {
-        "import": "./dist/index.mjs",
-        "require": "./dist/index.cjs"
+        "import": "./dist/index-esm.mjs",
+        "require": "./dist/index-cjs.cjs"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/SherlockGn/reg-hive-parser.git"
     },
+    "homepage": "https://github.com/SherlockGn/reg-hive-parser/tree/main",
     "scripts": {
         "build": "rollup -c",
         "test": "node test/test.cjs && node test/test.mjs"
@@ -21,6 +25,7 @@
         "windows",
         "registry",
         "hive",
+        "ntuser.dat",
         "parser",
         "security"
     ],

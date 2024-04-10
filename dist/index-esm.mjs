@@ -524,7 +524,7 @@ const getFileData = async path => {
     }
 
     let fs = null;
-    if (require) {
+    if (typeof require !== 'undefined') {
         fs = require('fs');
     } else {
         fs = await import('fs');
