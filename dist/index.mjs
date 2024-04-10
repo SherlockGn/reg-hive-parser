@@ -523,7 +523,13 @@ const getFileData = async path => {
         throw new Error('not supported for browser to open a local file')
     }
 
-    let fs = await import('fs');
+    let fs = null;
+    if (require) {
+        fs = require('fs');
+    } else {
+        fs = await import('fs');
+    }
+
     return fs.promises.readFile(path)
 };
 
@@ -624,6 +630,7 @@ const parse = async (input, opt) => {
         file = input;
     }
 
+    opt = { ...opt };
     const { recurse = false, simplify = true } = opt;
 
     const parsed = parseBase(file, recurse);

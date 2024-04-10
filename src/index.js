@@ -114,6 +114,7 @@ export const parse = async (input, opt) => {
         file = input
     }
 
+    opt = { ...opt }
     const { recurse = false, simplify = true } = opt
 
     const parsed = parseBase(file, recurse)
