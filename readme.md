@@ -38,7 +38,7 @@ import { parse } from 'reg-hive-parser'
 ### Browser
 ```html
 <input type="file" />
-<script src="../dist/index.umd.js"></script>
+<script src="./node_modules/reg-hive-parser/dist/index.umd.js"></script>
 <script>
     const { parse } = regHiveParser
     const input = document.querySelector('input')
